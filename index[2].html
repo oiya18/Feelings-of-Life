@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feelings of Life</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- HOME -->
+<div class="page active" id="home">
+  <h1>Feelings of Life</h1>
+  <button onclick="goTo('auth')">Enter</button>
+  <button onclick="showInfo()">Info</button>
+</div>
+
+<!-- AUTH -->
+<div class="page" id="auth">
+  <h2>Create / Log In</h2>
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Continue</button>
+</div>
+
+<!-- SURVEY -->
+<div class="page" id="survey">
+  <h2>How does today feel?</h2>
+  <div class="grid">
+    <button class="hp" onclick="selectMood('highPositive')">High Positive</button>
+    <button class="lp" onclick="selectMood('lowPositive')">Low Positive</button>
+    <button class="hn" onclick="selectMood('highNegative')">High Negative</button>
+    <button class="ln" onclick="selectMood('lowNegative')">Low Negative</button>
+  </div>
+</div>
+
+<!-- EMOTIONS -->
+<div class="page" id="emotions">
+  <h2>Choose an emotion</h2>
+  <div id="emotionGrid" class="grid"></div>
+</div>
+
+<!-- BOARDS -->
+<div class="page" id="boards">
+  <h2>Your Boards</h2>
+  <div class="grid">
+    <button onclick="openBoard('proud')">Proud of u</button>
+    <button onclick="openBoard('happy')">A piece of happiness</button>
+    <button onclick="openBoard('sad')">Overwhelming sadness</button>
+    <button onclick="openBoard('pain')">Pain that I can't show</button>
+  </div>
+
+  <button onclick="goTo('history')">Emotion History</button>
+  <button onclick="goTo('calendar')">Calendar View</button>
+  <button onclick="goTo('admin')">Admin</button>
+  <button onclick="showInfo()">Info</button>
+</div>
+
+<!-- BOARD PAGE -->
+<div class="page" id="boardPage">
+  <h2 id="boardTitle"></h2>
+  <button onclick="toggleLock()">Lock / Unlock Board</button>
+  <textarea id="boardInput" placeholder="Write here..."></textarea>
+  <button onclick="savePost()">Save</button>
+  <div id="posts"></div>
+  <button onclick="goTo('boards')">Back</button>
+</div>
+
+<!-- HISTORY -->
+<div class="page" id="history">
+  <h2>Emotion Patterns</h2>
+  <canvas id="emotionChart" width="300" height="300"></canvas>
+  <canvas id="weeklyChart" width="300" height="200"></canvas>
+  <button onclick="goTo('boards')">Back</button>
+</div>
+
+<!-- CALENDAR -->
+<div class="page" id="calendar">
+  <h2>Emotion Calendar</h2>
+  <div id="calendarGrid" class="grid"></div>
+  <button onclick="goTo('boards')">Back</button>
+</div>
+
+<!-- ADMIN -->
+<div class="page" id="admin">
+  <h2>Admin Control</h2>
+  <input id="adminPass" type="password" placeholder="Admin Password">
+  <button onclick="adminLogin()">Unlock</button>
+
+  <div id="adminPanel" class="hidden">
+    <button onclick="resetData()">Delete All Data</button>
+    <button onclick="changeAdminPass()">Change Admin Password</button>
+  </div>
+
+  <button onclick="goTo('boards')">Back</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
