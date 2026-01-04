@@ -18,7 +18,10 @@
 <div class="page" id="auth">
   <h2>Create / Log In</h2>
   <input id="username" placeholder="Username">
-  <input id="password" type="password" placeholder="Password">
+  <div class="input-row">
+    <input id="password" type="password" placeholder="Password">
+    <button class="eye-btn" aria-label="Toggle password visibility" onclick="togglePassword('password', this)">👁️</button>
+  </div>
   <button onclick="login()">Continue</button>
 </div>
 
@@ -42,17 +45,28 @@
 <!-- BOARDS -->
 <div class="page" id="boards">
   <h2>Your Boards</h2>
-  <div class="grid">
-    <button onclick="openBoard('proud')">Proud of u</button>
-    <button onclick="openBoard('happy')">A piece of happiness</button>
-    <button onclick="openBoard('sad')">Overwhelming sadness</button>
-    <button onclick="openBoard('pain')">Pain that I can't show</button>
-  </div>
+  <!-- dynamic boards grid (now populated by JS) -->
+  <div id="boardsGrid" class="grid"></div>
 
   <button onclick="goTo('history')">Emotion History</button>
   <button onclick="goTo('calendar')">Calendar View</button>
+  <button onclick="goTo('manageBoards')">Manage Boards</button>
   <button onclick="goTo('admin')">Admin</button>
   <button onclick="showInfo()">Info</button>
+</div>
+
+<!-- MANAGE BOARDS PAGE -->
+<div class="page" id="manageBoards">
+  <h2>Manage Boards</h2>
+  <section id="boardManage" class="card">
+    <div class="row">
+      <input id="newBoardTitle" placeholder="New board title">
+      <button onclick="addBoard()">Add Board</button>
+    </div>
+    <div id="boardList" class="board-list"></div>
+    <small>Tip: Rename and delete work per board. Active board updates automatically.</small>
+  </section>
+  <button onclick="goTo('boards')">Back</button>
 </div>
 
 <!-- BOARD PAGE -->
@@ -70,6 +84,7 @@
   <h2>Emotion Patterns</h2>
   <canvas id="emotionChart" width="300" height="300"></canvas>
   <canvas id="weeklyChart" width="300" height="200"></canvas>
+  <canvas id="monthlyChart" width="500" height="300"></canvas>
   <button onclick="goTo('boards')">Back</button>
 </div>
 
@@ -83,12 +98,17 @@
 <!-- ADMIN -->
 <div class="page" id="admin">
   <h2>Admin Control</h2>
-  <input id="adminPass" type="password" placeholder="Admin Password">
+  <div class="input-row">
+    <input id="adminPass" type="password" placeholder="Admin Password">
+    <button class="eye-btn" aria-label="Toggle admin password visibility" onclick="togglePassword('adminPass', this)">👁️</button>
+    <button class="small-btn" onclick="recoverAdminPass()">Recover</button>
+  </div>
   <button onclick="adminLogin()">Unlock</button>
 
   <div id="adminPanel" class="hidden">
     <button onclick="resetData()">Delete All Data</button>
     <button onclick="changeAdminPass()">Change Admin Password</button>
+    <button onclick="showStoredAdminPass()">Show Admin Password</button>
   </div>
 
   <button onclick="goTo('boards')">Back</button>
