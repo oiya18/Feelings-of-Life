@@ -41,9 +41,13 @@ function showInfo(){
 Now here's how it works:
 1. Your login username & password MUST be remembered. This is the only way to keep track. Don't worry, no personal info is asked. All safe unless you share your password.
 2. Unlock admin mode to access extra functions. Original password: admin123. Feel free to change it.
-3. Data only saves per device; this is not online, so sharing is limited.
+3. Data only saves per device; this is not online, so sharing is limited. (I haven't tested this part yet)
+4. In the boards, you can write about anything you want. I suggest using the board as a prompt for inspiration. For example, if the board is "proud", write about your acheivements.
+5. When you delete a board, there is no going back. Be careful of what you delete!
 
-Have fun & share with your friends!`);
+That's it! Have fun & share with your friends!
+
+Purpose of Feelings of Life: release stress and to keep the your mind healthy. remember to always check on yourself and take a break. Use this to help you. This might not help you solve your problems, but writing it down helps the mind be at ease :D);
 }
 
 // Toggle password visibility for inputs by id. Button element passed to update label if desired.
